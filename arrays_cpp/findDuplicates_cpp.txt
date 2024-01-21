@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& a) {
+        int n=a.size(),temp=0;
+        vector<int>v;
+        sort(a.begin(),a.end());
+        
+        for(int i=1;i<=n-1;i++)
+        {
+            
+                if(a[i]==a[i-1])
+                {
+                   v.push_back(a[i]);
+                }
+            
+        }
+        return v;
+        
+       
+        
+    }
+};

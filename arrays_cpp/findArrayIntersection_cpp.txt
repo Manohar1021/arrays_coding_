@@ -1,0 +1,22 @@
+#include <bits/stdc++.h> 
+vector<int> findArrayIntersection(vector<int> &a1, int n, vector<int> &a2, int m)
+{
+	// Write your code here.
+    vector<int>v;
+    for(int i=0;i<n;i++)
+    {
+        int ele=a1[i];
+        for(int j=0;j<m;j++)
+        {
+            if(ele==a2[j])
+            {
+                v.push_back(ele);
+                a2[j]=-2;
+                break;
+            }
+
+        }
+        
+    }
+    return v;
+}
