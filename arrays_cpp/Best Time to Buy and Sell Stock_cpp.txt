@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+int maximumProfit(vector<int> &a){
+    // Write your code here.
+    int minl=a[0];
+    int prof=0;
+    int n=a.size();
+
+    for(int i=0;i<n;i++)
+    {
+        int cos=a[i]-minl;
+        prof=max(prof,cos);
+        minl=min(minl,a[i]);
+    }
+    return prof;
+}
