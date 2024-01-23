@@ -1,0 +1,81 @@
+//brute it takes more complexity
+#include <bits/stdc++.h>
+void row(vector<vector<int>>&a,int i,int m)
+{
+	for(int j=0;j<m;j++)
+	{
+		if(a[i][j]!=0)
+		{
+			a[i][j]=-1;
+
+		}
+	}
+} 
+void col(vector<vector<int>>&a,int j,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		if(a[i][j]!=0)
+		{
+			a[i][j]=-1;
+
+		}
+	}
+} 
+vector<vector<int>> zeroMatrix(vector<vector<int>> a, int n, int m) {
+	// Write your code here.
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			if(a[i][j]==0)
+			{
+				row(a,i,m);
+				col(a,j,n);
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			if(a[i][j]==-1)
+			{
+				a[i][j]=0;
+			}
+		}
+	}
+	return a;
+
+
+}
+//betterr
+#include <bits/stdc++.h> 
+vector<vector<int>> zeroMatrix(vector<vector<int>> &a, int n, int m) {
+	// Write your code here.
+	int col[m]={0};
+	int row[n]={0};
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			if(a[i][j]==0)
+			{
+				row[i]=1;
+				col[j]=1;
+				
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			if(row[i]==1||col[j]==1)
+			{
+				a[i][j]=0;
+			}
+		}
+	}
+	return a;
+}
