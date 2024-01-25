@@ -1,0 +1,42 @@
+vector<int> spiralMatrix(vector<vector<int>>&a) {
+    // Write your code here.
+    int n=a.size();
+    int m=a[0].size();
+    int lef=0,top=0,righ=m-1,bot=n-1;
+    vector<int>v;
+    while(lef<=righ&&top<=bot)
+    {
+    for(int i=lef;i<=righ;i++)
+    {
+        v.push_back(a[top][i]);
+        
+    }
+    top++;
+    for(int i=top;i<=bot;i++)
+    {
+        v.push_back(a[i][righ]);
+       
+    }
+     righ--;
+    if(top<=bot)
+    {
+    for(int i=righ;i>=lef;i--)
+    {
+        v.push_back(a[bot][i]);
+        
+    }
+    bot--;
+    }
+    if(lef<=righ)
+    {
+    for(int i=bot;i>=top;i--)
+    {
+       v.push_back(a[i][lef]);
+        
+    }
+    lef++;
+    }
+    }
+    return v;
+
+}
